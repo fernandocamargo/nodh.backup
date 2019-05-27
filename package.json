@@ -1,6 +1,6 @@
 {
   "name": "nodh",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "dist/index.js",
   "repository": "https://github.com/fernandocamargo/nodh.git",
   "author": "Fernando Camargo <camargodelbuono@gmail.com>",
@@ -20,6 +20,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^24.8.0",
     "babel-plugin-module-resolver": "^3.2.0",
+    "babel-preset-minify": "^0.5.0",
     "jest": "^24.8.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
