@@ -1,6 +1,6 @@
 {
   "name": "nodh",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "repository": "https://github.com/fernandocamargo/nodh.git",
   "author": "Fernando Camargo <camargodelbuono@gmail.com>",
@@ -25,7 +25,7 @@
     "lodash": "^4.17.11",
     "md5": "^2.2.1",
     "pullstate": "^1.0.0-beta.4",
-    "react-redux": "^7.0.3",
+    "react-redux": "^7.1.0-alpha.5",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-persist": "^5.10.0",
