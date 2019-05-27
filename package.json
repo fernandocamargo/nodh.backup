@@ -1,6 +1,6 @@
 {
   "name": "nodh",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "repository": "https://github.com/fernandocamargo/nodh.git",
   "author": "Fernando Camargo <camargodelbuono@gmail.com>",
@@ -16,7 +16,8 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.0.0"
+    "@babel/preset-react": "^7.0.0",
+    "babel-plugin-module-resolver": "^3.2.0"
   },
   "dependencies": {
     "immer": "^3.1.2",
