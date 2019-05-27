@@ -1,0 +1,39 @@
+{
+  "name": "nodh",
+  "version": "1.0.1",
+  "main": "dist/index.js",
+  "repository": "https://github.com/fernandocamargo/nodh.git",
+  "author": "Fernando Camargo <camargodelbuono@gmail.com>",
+  "license": "Apache 2",
+  "private": false,
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "prepublishOnly": "babel ./src --out-dir ./dist -s inline"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0"
+  },
+  "dependencies": {
+    "immer": "^3.1.2",
+    "immutability-helper": "^3.0.0",
+    "lodash": "^4.17.11",
+    "md5": "^2.2.1",
+    "pullstate": "^1.0.0-beta.4",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-persist": "^5.10.0",
+    "reselect": "^4.0.0",
+    "uuid": "^3.3.2"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
