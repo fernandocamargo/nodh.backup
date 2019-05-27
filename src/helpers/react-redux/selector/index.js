@@ -1,7 +1,7 @@
-import { useMemo } from "react";
-import { useSelector } from "react-redux";
+import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
 
-import Cache from "helpers/object/cache";
+import Cache from 'helpers/object/cache';
 
 const memoize = selector => {
   const cache = new Cache();

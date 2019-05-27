@@ -1,19 +1,19 @@
-import first from "lodash/first";
-import attempt from "lodash/attempt";
-import md5 from "md5";
-import { v4 } from "uuid";
-import { useCallback, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import first from 'lodash/first';
+import attempt from 'lodash/attempt';
+import md5 from 'md5';
+import { v4 } from 'uuid';
+import { useCallback, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
-import stringify from "helpers/object/stringify";
-import replace from "helpers/object/replace";
-import Proxy from "helpers/promise/proxy";
-import Declined from "helpers/error/declined";
-import { NODH } from "constants/index";
-import { log } from "store";
-import { start, finish, clear } from "mutations";
-import { volatile } from "actions";
-import select from "selectors";
+import stringify from 'helpers/object/stringify';
+import replace from 'helpers/object/replace';
+import Proxy from 'helpers/promise/proxy';
+import Declined from 'helpers/error/declined';
+import { NODH } from 'constants/index';
+import { log } from 'store';
+import { start, finish, clear } from 'mutations';
+import { volatile } from 'actions';
+import select from 'selectors';
 
 const proxy = new Proxy();
 const instances = new Map();
@@ -22,7 +22,7 @@ export default ({ namespace, selector, actions }) => {
   const dispatch = useDispatch();
   const useState = useCallback(select({ namespace, selector }), [
     namespace,
-    selector
+    selector,
   ]);
   const connect = useCallback(
     (path, action) => {
@@ -34,7 +34,7 @@ export default ({ namespace, selector, actions }) => {
         (...params) => {
           const thread = v4();
           const typify = level =>
-            `${NODH}: [${first(level)}] ${location.join(".")}(${stringify(
+            `${NODH}: [${first(level)}] ${location.join('.')}(${stringify(
               params
             )});`;
           const save = path => mutation => {
@@ -50,10 +50,10 @@ export default ({ namespace, selector, actions }) => {
             proxy.run(promise, { name: fingerprint, value: thread });
           const isDeclined = error => error instanceof Declined;
           const resources = {
-            persisted: { save: save(["persisted"]) },
-            volatile: { save: save(["volatile", namespace]) },
-            thread: { fail: conclude("error"), success: conclude("output") },
-            helpers: { takeLatest, isDeclined }
+            persisted: { save: save(['persisted']) },
+            volatile: { save: save(['volatile', namespace]) },
+            thread: { fail: conclude('error'), success: conclude('output') },
+            helpers: { takeLatest, isDeclined },
           };
           const effect = attempt(action(...params), resources);
           const loading = effect !== fingerprint;
@@ -72,7 +72,7 @@ export default ({ namespace, selector, actions }) => {
   );
   const useActions = useCallback(() => replace(actions).with(connect), [
     actions,
-    connect
+    connect,
   ]);
 
   useEffect(() => {
@@ -84,7 +84,7 @@ export default ({ namespace, selector, actions }) => {
 
     return () => {
       const {
-        currentState: { namespaces }
+        currentState: { namespaces },
       } = log;
       const actions = Array.from(namespaces.get(namespace));
 

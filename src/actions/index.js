@@ -1,1 +1,1 @@
-export { default as volatile } from "./volatile";
+export { default as volatile } from './volatile';

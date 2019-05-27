@@ -1,8 +1,8 @@
-import { Store } from "pullstate";
+import { Store } from 'pullstate';
 
-import store from ".";
+import store from '.';
 
-test("Should be a instance of pullstate store", () => {
+test('Should be a instance of pullstate store', () => {
   expect(store instanceof Store).toBe(true);
 });
 
@@ -12,6 +12,6 @@ test(`
   expect(store.initialState).toStrictEqual({
     namespaces: new Map(),
     actions: new Map(),
-    threads: new Map()
+    threads: new Map(),
   });
 });

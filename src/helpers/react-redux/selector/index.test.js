@@ -1,11 +1,11 @@
-import React from "react";
-import { renderHook } from "react-hooks-testing-library";
+import React from 'react';
+import { renderHook } from 'react-hooks-testing-library';
 
-import { NODH } from "constants/index";
-import { getInitialState } from "reducers";
-import Provider from "components/provider";
+import { NODH } from 'constants/index';
+import { getInitialState } from 'reducers';
+import Provider from 'components/provider';
 
-import useSelector from ".";
+import useSelector from '.';
 
 const Mock = props => <Provider name={NODH} {...props} />;
 
@@ -15,10 +15,10 @@ test(`
   const selector = ({ persisted, session, volatile }) => ({
     persisted,
     session,
-    volatile
+    volatile,
   });
   const {
-    result: { current }
+    result: { current },
   } = renderHook(() => useSelector(selector), { wrapper: Mock });
   const expected = getInitialState();
 

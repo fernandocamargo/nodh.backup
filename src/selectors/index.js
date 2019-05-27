@@ -1,6 +1,6 @@
-import { createSelector } from "reselect";
+import { createSelector } from 'reselect';
 
-import useSelector from "helpers/react-redux/selector";
+import useSelector from 'helpers/react-redux/selector';
 
 export default ({ namespace, selector }) => () =>
   useSelector(

@@ -1,34 +1,34 @@
-import lowerCase from "lodash/lowerCase";
-import isString from "lodash/isString";
-import isDate from "lodash/isDate";
-import isFunction from "lodash/isFunction";
-import isArrayBuffer from "lodash/isArrayBuffer";
-import isTypedArray from "lodash/isTypedArray";
-import isMap from "lodash/isMap";
-import isWeakMap from "lodash/isWeakMap";
-import isSet from "lodash/isSet";
-import isWeakSet from "lodash/isWeakSet";
-import isElement from "lodash/isElement";
-import isRegExp from "lodash/isRegExp";
+import lowerCase from 'lodash/lowerCase';
+import isString from 'lodash/isString';
+import isDate from 'lodash/isDate';
+import isFunction from 'lodash/isFunction';
+import isArrayBuffer from 'lodash/isArrayBuffer';
+import isTypedArray from 'lodash/isTypedArray';
+import isMap from 'lodash/isMap';
+import isWeakMap from 'lodash/isWeakMap';
+import isSet from 'lodash/isSet';
+import isWeakSet from 'lodash/isWeakSet';
+import isElement from 'lodash/isElement';
+import isRegExp from 'lodash/isRegExp';
 
-const normalize = object => String(object).replace(/\s+/g, " ");
+const normalize = object => String(object).replace(/\s+/g, ' ');
 
 const stringify = object => normalize(JSON.stringify(object, null, 2));
 
 const cast = object => {
   switch (true) {
     case isArrayBuffer(object):
-      return `ArrayBuffer()`;
+      return 'ArrayBuffer()';
     case isTypedArray(object):
-      return `Uint8Array()`;
+      return 'Uint8Array()';
     case isMap(object):
-      return "Map()";
+      return 'Map()';
     case isWeakMap(object):
-      return "WeakMap()";
+      return 'WeakMap()';
     case isSet(object):
-      return "Set()";
+      return 'Set()';
     case isWeakSet(object):
-      return "WeakSet()";
+      return 'WeakSet()';
     default:
       return normalize(object);
   }
@@ -36,7 +36,7 @@ const cast = object => {
 
 export default (params = []) =>
   !Array.isArray(params)
-    ? ""
+    ? ''
     : params
         .map(param => {
           switch (true) {
@@ -56,4 +56,4 @@ export default (params = []) =>
               return cast(param);
           }
         })
-        .join(", ");
+        .join(', ');

@@ -1,6 +1,6 @@
-import isEqual from "lodash/isEqual";
+import isEqual from 'lodash/isEqual';
 
-import Declined from "helpers/error/declined";
+import Declined from 'helpers/error/declined';
 
 export default class {
   constructor() {

@@ -1,11 +1,11 @@
-import Cache from ".";
+import Cache from '.';
 
 test(`
   Should keep the reference until a change based on shallow comparison happens.
 `, () => {
-  const value = { foo: { bar: "zaz" } };
+  const value = { foo: { bar: 'zaz' } };
   const cache = new Cache(value);
-  const copy = { foo: { bar: "zaz" } };
+  const copy = { foo: { bar: 'zaz' } };
 
   expect(cache.update(copy)).toBe(value);
 });
@@ -13,9 +13,9 @@ test(`
 test(`
   Should change the reference when change based on shallow comparison happens.
 `, () => {
-  const current = { foo: { bar: "zaz" } };
+  const current = { foo: { bar: 'zaz' } };
   const cache = new Cache(current);
-  const next = { zaz: { bar: "foo" } };
+  const next = { zaz: { bar: 'foo' } };
 
   expect(cache.update(next)).toBe(next);
 });

@@ -1,12 +1,12 @@
-import getStore from ".";
+import getStore from '.';
 
-test("", () => {
+test('', () => {
   const [store] = getStore();
 
   expect(store.getState()).toStrictEqual({
     _persist: { version: -1, rehydrated: false },
     persisted: {},
     session: {},
-    volatile: {}
+    volatile: {},
   });
 });

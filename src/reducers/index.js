@@ -1,13 +1,13 @@
-import get from "lodash/get";
-import attempt from "lodash/attempt";
+import get from 'lodash/get';
+import attempt from 'lodash/attempt';
 
-import { NODH } from "constants/index";
-import { set } from "mutations";
+import { NODH } from 'constants/index';
+import { set } from 'mutations';
 
 export const getInitialState = () => ({
   persisted: {},
   session: {},
-  volatile: {}
+  volatile: {},
 });
 
 export default () => (state = getInitialState(), { type, path, mutation }) => {

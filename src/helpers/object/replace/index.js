@@ -1,5 +1,5 @@
-import isFunction from "lodash/isFunction";
-import isString from "lodash/isString";
+import isFunction from 'lodash/isFunction';
+import isString from 'lodash/isString';
 
 const deflate = object => (Array.isArray(object) ? [] : {});
 
@@ -21,7 +21,7 @@ const replace = (object, path = []) => ({
     };
 
     return skip ? object : entries.reduce(dig, deflate(object));
-  }
+  },
 });
 
 export default replace;

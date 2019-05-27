@@ -1,8 +1,8 @@
-import md5 from "md5";
+import md5 from 'md5';
 
-import { mount, unmount } from "mutations";
+import { mount, unmount } from 'mutations';
 
-import actions from ".";
+import actions from '.';
 
 const getMock = () => {
   const save = jest.fn().mockImplementation(md5);

@@ -1,41 +1,41 @@
-import replace from ".";
+import replace from '.';
 
 const create = () => ({
-  a: () => "a",
-  b: () => "b",
-  c: () => "c",
-  d: () => "d",
+  a: () => 'a',
+  b: () => 'b',
+  c: () => 'c',
+  d: () => 'd',
   e: {
-    f: () => "f",
-    g: () => "g",
-    h: () => "h",
+    f: () => 'f',
+    g: () => 'g',
+    h: () => 'h',
     i: {
-      j: () => "j",
-      l: () => "l",
+      j: () => 'j',
+      l: () => 'l',
       m: {
-        n: () => "n",
+        n: () => 'n',
         o: {
           p: {
-            q: () => "q",
+            q: () => 'q',
             r: [
-              () => "s",
+              () => 's',
               {
                 t: {
-                  u: () => "u"
-                }
+                  u: () => 'u',
+                },
               },
-              () => "v",
+              () => 'v',
               {
                 x: {
-                  z: () => "z"
-                }
-              }
-            ]
-          }
-        }
-      }
-    }
-  }
+                  z: () => 'z',
+                },
+              },
+            ],
+          },
+        },
+      },
+    },
+  },
 });
 
 const replacement = (path, handler) => jest.fn(handler);
@@ -61,7 +61,7 @@ test(`
     output.e.i.m.o.p.r[0],
     output.e.i.m.o.p.r[1].t.u,
     output.e.i.m.o.p.r[2],
-    output.e.i.m.o.p.r[3].x.z
+    output.e.i.m.o.p.r[3].x.z,
   ];
 
   expect(expected.length).toBe(expected.filter(jest.isMockFunction).length);
@@ -97,7 +97,7 @@ test("Should return the object when isn't iterable.", () => {
 });
 
 test("Should return the object when isn't iterable.", () => {
-  const tree = "123";
+  const tree = '123';
   const output = replace(tree).with(replacement);
 
   expect(output).toBe(tree);
