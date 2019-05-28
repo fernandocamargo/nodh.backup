@@ -3,10 +3,10 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { NODH as key } from 'constants/index';
+import { NODH } from 'constants/index';
 import getReducers from 'reducers';
 
-export default () => {
+export default ({ key = NODH }) => {
   const store = createStore(
     persistReducer({ whitelist: ['persisted'], key, storage }, getReducers()),
     composeWithDevTools()
