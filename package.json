@@ -1,6 +1,6 @@
 {
   "name": "nodh",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "main": "dist/index.js",
   "repository": "https://github.com/fernandocamargo/nodh.git",
   "author": "Fernando Camargo <camargodelbuono@gmail.com>",
