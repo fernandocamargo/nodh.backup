@@ -6,11 +6,13 @@ import { PersistGate as ReduxPersist } from 'redux-persist/integration/react';
 import { TESTING } from 'constants/index';
 import { data as getStore } from 'store';
 
-export default ({ identity, children }) => {
-  const [store, persistor] = useMemo(() => getStore({ key: identity }), [
-    identity,
-  ]);
-  const Persistence = TESTING ? property('children') : ReduxPersist;
+const Persistence = TESTING ? property('children') : ReduxPersist;
+
+export default ({ signature, setInitialState, reconcileState, children }) => {
+  const [store, persistor] = useMemo(
+    () => getStore({ signature, setInitialState, reconcileState }),
+    [signature]
+  );
 
   return (
     <Redux store={store}>

@@ -6,9 +6,22 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { NODH } from 'constants/index';
 import getReducers from 'reducers';
 
-export default ({ key = NODH }) => {
+const sign = signature =>
+  [signature, window.location.host, NODH].filter(Boolean).join(' @ ');
+
+const reconcile = reconciler => (current, _, next) => reconciler(current, next);
+
+export default ({ signature, setInitialState, reconcileState }) => {
   const store = createStore(
-    persistReducer({ whitelist: ['persisted'], key, storage }, getReducers()),
+    persistReducer(
+      {
+        whitelist: ['persisted'],
+        key: sign(signature),
+        ...(!!reconcileState && { stateReconciler: reconcile(reconcileState) }),
+        storage,
+      },
+      getReducers({ format: setInitialState })
+    ),
     composeWithDevTools()
   );
   const persistor = persistStore(store);

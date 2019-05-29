@@ -1,3 +1,4 @@
+import identity from 'lodash/identity';
 import get from 'lodash/get';
 import attempt from 'lodash/attempt';
 
@@ -10,7 +11,10 @@ export const getInitialState = () => ({
   volatile: {},
 });
 
-export default () => (state = getInitialState(), { type, path, mutation }) => {
+export default ({ format = identity }) => (
+  state = format(getInitialState()),
+  { type, path, mutation }
+) => {
   switch (true) {
     case String(type).startsWith(NODH):
       return attempt(set({ path, value: mutation(get(state, path)) }), state);
