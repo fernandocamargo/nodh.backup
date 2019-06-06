@@ -16,7 +16,10 @@ import { volatile } from 'actions';
 import select from 'selectors';
 
 const proxy = new Proxy();
+
 const instances = new Map();
+
+const sleep = event => window.setTimeout(event, 0);
 
 export default ({ namespace, selector, actions }) => {
   const dispatch = useDispatch();
@@ -44,8 +47,11 @@ export default ({ namespace, selector, actions }) => {
             return fingerprint;
           };
           const conclude = type => content =>
-            instances.has(namespace) &&
-            log.update(finish({ [type]: content, thread }));
+            sleep(
+              () =>
+                instances.has(namespace) &&
+                log.update(finish({ [type]: content, thread }))
+            );
           const takeLatest = promise =>
             proxy.run(promise, { name: fingerprint, value: thread });
           const isDeclined = error => error instanceof Declined;
