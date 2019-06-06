@@ -51,6 +51,7 @@ export default ({ namespace, selector, actions }) => {
           const isDeclined = error => error instanceof Declined;
           const resources = {
             persisted: { save: save(['persisted']) },
+            session: { save: save(['session']) },
             volatile: { save: save(['volatile', namespace]) },
             thread: { fail: conclude('error'), success: conclude('output') },
             helpers: { takeLatest, isDeclined },
