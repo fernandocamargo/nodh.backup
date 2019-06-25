@@ -6,6 +6,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { NODH } from 'constants/index';
 import getReducers from 'reducers';
 
+let counter = 1;
+
 const sign = signature =>
   [signature, window.location.host, NODH].filter(Boolean).join(' @ ');
 
@@ -22,7 +24,7 @@ export default ({ signature, setInitialState, reconcileState }) => {
       },
       getReducers({ format: setInitialState })
     ),
-    composeWithDevTools()
+    composeWithDevTools({ name: `Testing ${counter++}` })()
   );
   const persistor = persistStore(store);
 
