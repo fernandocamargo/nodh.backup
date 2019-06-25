@@ -22,7 +22,7 @@ export default ({ signature, setInitialState, reconcileState }) => {
       },
       getReducers({ format: setInitialState })
     ),
-    composeWithDevTools({ name: 'Testing...' })
+    composeWithDevTools()
   );
   const persistor = persistStore(store);
 
